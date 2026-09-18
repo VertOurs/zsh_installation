@@ -16,7 +16,7 @@ install_zsh() {
         sudo zypper install -y zsh > /dev/null 2>&1
     else
         echo "Gestionnaire de paquets non supporté. Veuillez installer zsh manuellement."
-        exit 1
+        return 1
     fi
 }
 
@@ -38,4 +38,6 @@ else
 fi
 
 # definir le shell par défaut
-chsh -s "$(command -v zsh)"
+if [ "$(basename "$SHELL")" != "zsh" ]; then
+    chsh -s "$(command -v zsh)"
+fi

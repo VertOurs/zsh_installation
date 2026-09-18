@@ -3,8 +3,6 @@
 # Se placer dans le dossier du script pour que les chemins relatifs fonctionnent
 cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
 
-source ./utils.sh
-
 # Installation de zsh
 ./install_zsh.sh || { echo "Échec de l'installation de zsh, arrêt du script."; exit 1; }
 
